@@ -7,7 +7,7 @@ namespace SCA
     // Usecase can depend on Gateway through its interface.
     // Usecase can't be dependent on View, Presenter
     // Usecase can't inherit Monobehaviour
-    public class CountUsecase : ICountUsecase
+    public class CountUsecase
     {
         // Reactive Properties
         public IReadOnlyReactiveProperty<Dictionary<CountType, Count>> Counts => _counts;

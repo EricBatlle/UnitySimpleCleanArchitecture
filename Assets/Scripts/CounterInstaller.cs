@@ -19,7 +19,7 @@ namespace SCA
                 .Bind<ICountDBGateway>().To<CountDBGateway>().AsSingle();
 
             Container
-                .BindInterfacesTo<CountUsecase>().AsSingle();
+                .Bind<CountUsecase>().AsSingle();
 
             Container
                 .BindInterfacesTo<CountPresenter>().FromNewComponentOnRoot().AsSingle();

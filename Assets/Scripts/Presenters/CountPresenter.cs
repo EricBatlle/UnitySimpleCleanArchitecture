@@ -17,10 +17,10 @@ namespace SCA
         private readonly ReactiveProperty<int> _countB = new ReactiveProperty<int>();
 
         // Dependency
-        private ICountUsecase _usecase;
+        private CountUsecase _usecase;
 
         [Inject]
-        public void Initialize(ICountUsecase usecase)
+        public void Initialize(CountUsecase usecase)
         {
             _usecase = usecase;
 
