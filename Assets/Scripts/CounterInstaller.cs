@@ -9,23 +9,20 @@ namespace SCA
         public override void InstallBindings()
         {
             // Instantiate objects
-            var gateway = new CountDBGateway();
-            var usecase = new CountUsecase(gateway);
-            var presenter = gameObject.AddComponent<CountPresenter>();
-            presenter.Initialize(usecase); // since presenter inheritates Monobihavior, you can't inject the dependency by constructor
+            //var gateway = new CountDBGateway();
+            //var usecase = new CountUsecase(gateway);
+            //var presenter = gameObject.AddComponent<CountPresenter>();
+            //presenter.Initialize(usecase); // since presenter inheritates Monobihavior, you can't inject the dependency by constructor
 
             // And assign for injection
             Container
-                .Bind<ICountDBGateway>()
-                .FromInstance(gateway);
+                .Bind<ICountDBGateway>().To<CountDBGateway>().AsSingle();
 
             Container
-                .Bind<ICountUsecase>()
-                .FromInstance(usecase);
+                .BindInterfacesTo<CountUsecase>().AsSingle();
 
             Container
-                .Bind<ICountPresenter>()
-                .FromInstance(presenter);
+                .BindInterfacesTo<CountPresenter>().FromNewComponentOnRoot().AsSingle();
         }
     }
 }

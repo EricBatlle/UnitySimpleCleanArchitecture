@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using Zenject;
 
 namespace SCA
 {
@@ -18,6 +19,7 @@ namespace SCA
         // Dependency
         private ICountUsecase _usecase;
 
+        [Inject]
         public void Initialize(ICountUsecase usecase)
         {
             _usecase = usecase;
