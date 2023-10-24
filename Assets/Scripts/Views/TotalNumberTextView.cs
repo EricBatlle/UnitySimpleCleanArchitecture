@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UniRx;
-using Zenject;
 
 namespace SCA
 {
@@ -12,22 +10,11 @@ namespace SCA
     // View can inherit Monobehaviour
     public class TotalNumberTextView : MonoBehaviour
     {
-        [Inject]
-        private CountPresenter _presenter;
+        [SerializeField]
         private Text _text;
 
-        private void Start()
+        public void UpdateCount(int a, int b)
         {
-            _text = GetComponent<Text>();
-
-            _presenter.CountA.Subscribe((x) => { UpdateCount(); }).AddTo(this);
-            _presenter.CountB.Subscribe((x) => { UpdateCount(); }).AddTo(this);
-        }
-
-        private void UpdateCount()
-        {
-            var a = _presenter.CountA.Value;
-            var b = _presenter.CountB.Value;
             var total = a + b;
             _text.text = string.Format("Total = {0}", total);
         }

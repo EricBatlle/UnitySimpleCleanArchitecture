@@ -11,51 +11,44 @@ namespace SCA
     // Presenter can inherit Monobehaviour
     public class CountPresenter : MonoBehaviour
     {
-        public IReadOnlyReactiveProperty<int> CountA => _countA;
-        private readonly ReactiveProperty<int> _countA = new ReactiveProperty<int>();
-        public IReadOnlyReactiveProperty<int> CountB => _countB;
-        private readonly ReactiveProperty<int> _countB = new ReactiveProperty<int>();
+        [SerializeField]
+        private TotalNumberTextView totalNumberTextView;
+        [SerializeField]
+        private List<CountTextView> countTextViews;
 
         // Dependency
         private CountUsecase _usecase;
+        private SignalBus _signalBus;
 
         [Inject]
-        public void Initialize(CountUsecase usecase)
+        public void Initialize(CountUsecase usecase, SignalBus signalBus)
         {
             _usecase = usecase;
-
-            // Start subscribing reactive property
-            var disposable = _usecase.Counts.Subscribe((dict) =>
-            {
-                // This lambda-function here will be called when _usecase.Counts reactive property updated
-                UpdateCount(dict);
-            });
+            _signalBus = signalBus;
+            
+            _signalBus.Subscribe<CountIncrementedSignal>(OnCountIncremented);
 
             // ... and update initialize by the current value
-            UpdateCount(_usecase.Counts.Value);
+            UpdateCountView(_usecase.GetInitialCountValues());
         }
-
-        private void UpdateCount(Dictionary<CountType, Count> dict)
-        {
-            foreach (var element in dict)
-            {
-                switch (element.Key)
-                {
-                    case CountType.A:
-                        _countA.Value = element.Value.Num;
-                        break;
-                    case CountType.B:
-                        _countB.Value = element.Value.Num;
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
+        
         public void IncrementCount(CountType type)
         {
             _usecase.IncrementCount(type);
+        }
+
+        private void OnCountIncremented(CountIncrementedSignal signal)
+        {
+            UpdateCountView(signal.counts);
+        }
+
+        private void UpdateCountView(Dictionary<CountType, Count> dict)
+        {
+            foreach (var textView in countTextViews) {
+                textView.UpdateText(dict[textView.Type].Num);
+            }
+
+            totalNumberTextView.UpdateCount(dict[CountType.A].Num, dict[CountType.B].Num);
         }
     }
 }

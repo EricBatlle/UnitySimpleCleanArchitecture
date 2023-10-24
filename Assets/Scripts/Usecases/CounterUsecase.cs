@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UniRx;
+using Zenject;
 
 namespace SCA
 {
@@ -9,19 +9,18 @@ namespace SCA
     // Usecase can't inherit Monobehaviour
     public class CountUsecase
     {
-        // Reactive Properties
-        public IReadOnlyReactiveProperty<Dictionary<CountType, Count>> Counts => _counts;
-        private readonly ReactiveProperty<Dictionary<CountType, Count>> _counts;
+        private readonly Dictionary<CountType, Count> _counts = new Dictionary<CountType, Count>();
+        private readonly Dictionary<CountType, Count> _initialCounts = new Dictionary<CountType, Count>();
 
         // Dependency
         private readonly ICountDBGateway _gateway;
+        private readonly SignalBus _signalBus;
 
-        public CountUsecase(ICountDBGateway gateway)
+        public CountUsecase(ICountDBGateway gateway, SignalBus signalBus)
         {
             _gateway = gateway;
+            _signalBus = signalBus;
 
-            // Initialize reactive property
-            _counts = new ReactiveProperty<Dictionary<CountType, Count>>(new Dictionary<CountType, Count>());
             InitCount(CountType.A);
             InitCount(CountType.B);
         }
@@ -33,7 +32,8 @@ namespace SCA
                 Type = type,
                 Num = _gateway.GetCount(type)
             };
-            _counts.Value.Add(type, count);
+            _counts.Add(type, count);
+            _initialCounts.Add(type, count);
         }
 
         public void IncrementCount(CountType type)
@@ -43,14 +43,13 @@ namespace SCA
             _gateway.SetCount(type, new_count);
 
             // publish the value changed
-            var dict = _counts.Value;
-            dict[type].Num = new_count;
-            _counts.SetValueAndForceNotify(dict);
+            _counts[type].Num = new_count;
+            _signalBus.Fire(new CountIncrementedSignal(_counts));
         }
 
-        public int GetCount(CountType type)
+        public Dictionary<CountType, Count> GetInitialCountValues()
         {
-            return _gateway.GetCount(type);
+            return _initialCounts;
         }
     }
 }

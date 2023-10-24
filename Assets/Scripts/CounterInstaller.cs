@@ -10,6 +10,8 @@ namespace SCA
         {
             SignalBusInstaller.Install(Container);
 
+            Container.DeclareSignal<CountIncrementedSignal>();
+            
             Container
                 .Bind<ICountDBGateway>().To<CountDBGateway>().AsSingle();
 
