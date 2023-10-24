@@ -9,7 +9,7 @@ namespace SCA
     // Presenter can depend on Usecase through its interface
     // Presenter can't dependent on View, Gateway
     // Presenter can inherit Monobehaviour
-    public class CountPresenter : MonoBehaviour, ICountPresenter
+    public class CountPresenter : MonoBehaviour
     {
         public IReadOnlyReactiveProperty<int> CountA => _countA;
         private readonly ReactiveProperty<int> _countA = new ReactiveProperty<int>();

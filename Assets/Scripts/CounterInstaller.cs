@@ -22,7 +22,7 @@ namespace SCA
                 .Bind<CountUsecase>().AsSingle();
 
             Container
-                .BindInterfacesTo<CountPresenter>().FromNewComponentOnRoot().AsSingle();
+                .Bind<CountPresenter>().FromNewComponentOnRoot().AsSingle();
         }
     }
 }

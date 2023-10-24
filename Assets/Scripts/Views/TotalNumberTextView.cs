@@ -13,7 +13,7 @@ namespace SCA
     public class TotalNumberTextView : MonoBehaviour
     {
         [Inject]
-        private ICountPresenter _presenter;
+        private CountPresenter _presenter;
         private Text _text;
 
         private void Start()
