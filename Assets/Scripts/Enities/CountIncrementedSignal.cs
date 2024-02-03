@@ -9,4 +9,9 @@ public class CountIncrementedSignal
     {
         this.counts = counts;
     }
+
+    public int GetTotalCount()
+    {
+        return counts[CountType.A].Num + counts[CountType.B].Num;
+    }
 }

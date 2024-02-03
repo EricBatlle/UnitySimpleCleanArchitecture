@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace SCA
@@ -16,13 +17,16 @@ namespace SCA
         private readonly ICountDBGateway _gateway;
         private readonly SignalBus _signalBus;
 
-        public CountUsecase(ICountDBGateway gateway, SignalBus signalBus)
+        [Inject]
+        public CountUsecase(ICountDBGateway gateway, SignalBus signalBus, Navigation navigation)
         {
             _gateway = gateway;
             _signalBus = signalBus;
 
             InitCount(CountType.A);
             InitCount(CountType.B);
+            
+            //navigation.Push<ScreenAView>();
         }
 
         private void InitCount(CountType type)

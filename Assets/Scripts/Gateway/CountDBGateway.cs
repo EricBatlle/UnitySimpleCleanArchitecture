@@ -5,7 +5,6 @@ namespace SCA
     // Gateway can't inherit Monobehaviour
     public class CountDBGateway : ICountDBGateway
     {
-
         private readonly Count CountA;
         private readonly Count CountB;
 
