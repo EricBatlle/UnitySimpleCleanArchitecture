@@ -11,11 +11,19 @@ public class NavigationInstaller : MonoInstaller
     
     public override void InstallBindings()
     {
+        Debug.Log($"Installing {this.name}");
         Container.BindInstance(screensContainer);
         Container.BindInstance(screensRootRectTransform);
         Container.BindFactory<UnityEngine.Object, Screen, Screen.Factory>().FromFactory<PrefabFactory<Screen>>();
         Container.Bind<Navigation>().AsSingle();
-        
-        Container.Bind<ScreenAPresenter>().AsTransient();
+        BindPresenters();
+    }
+
+    private void BindPresenters()
+    {
+        var presenters = screensContainer.GetScreensPresenters();
+        foreach (var presenterType in presenters) {
+            Container.Bind(presenterType).AsSingle();
+        }
     }
 }

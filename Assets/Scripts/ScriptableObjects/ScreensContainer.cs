@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,5 +11,15 @@ public class ScreensContainer : ScriptableObject
     public GameObject GetScreenPrefab<TScreen>() where TScreen : Component
     {
         return screenPrefabs.FirstOrDefault(screen => screen && screen.GetComponent<TScreen>());
+    }
+
+    public List<Type> GetScreensPresenters()
+    {
+        var presenterComponents = new List<Type>();
+        foreach (var screen in screenPrefabs) {
+            var presenterType = screen.GetComponent<Screen>()?.GetPresenterType();
+            presenterComponents.Add(presenterType);
+        }
+        return presenterComponents;
     }
 }

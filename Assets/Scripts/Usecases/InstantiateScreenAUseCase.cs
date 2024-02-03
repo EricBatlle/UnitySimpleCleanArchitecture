@@ -4,21 +4,20 @@ using Zenject;
 public class InstantiateScreenAUseCase
 {
     private SignalBus signalBus;
+    private Navigation navigation;
     
-    public void Initialize(SignalBus signalBus)
+    [Inject]
+    public InstantiateScreenAUseCase(SignalBus signalBus, Navigation navigation)
     {
         this.signalBus = signalBus;
+        this.navigation = navigation;
         signalBus.Subscribe<CountIncrementedSignal>(OnCountIncremented);
-    }
-    
-    public void SayHello()
-    {
-        Debug.Log($"Hello from {this}");
     }
     
     private void OnCountIncremented(CountIncrementedSignal signal)
     {
         if (signal.GetTotalCount() > 3) {
+            navigation.Create<ScreenAView>();
         }
     }
 }

@@ -11,17 +11,13 @@ public class ScreenAView : Screen
     private Button button;
 
     private ScreenAPresenter presenter;
+    public override Type GetPresenterType() => typeof(ScreenAPresenter);
 
     [Inject]
     public void Initialize(ScreenAPresenter presenter)
     {
         Debug.Log("Initialize ScreenAViewInjection");
         this.presenter = presenter;
-        button.onClick.AddListener(presenter.SayHello);
+        button.onClick.AddListener(() => presenter.CloseScreen(this));
     }
-
-    // private void OnEnable()
-    // {
-    //     presenter.SayHello();
-    // }
 }

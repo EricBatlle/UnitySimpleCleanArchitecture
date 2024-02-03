@@ -18,15 +18,13 @@ namespace SCA
         private readonly SignalBus _signalBus;
 
         [Inject]
-        public CountUsecase(ICountDBGateway gateway, SignalBus signalBus, Navigation navigation)
+        public CountUsecase(ICountDBGateway gateway, SignalBus signalBus)
         {
             _gateway = gateway;
             _signalBus = signalBus;
 
             InitCount(CountType.A);
             InitCount(CountType.B);
-            
-            //navigation.Push<ScreenAView>();
         }
 
         private void InitCount(CountType type)

@@ -1,17 +1,6 @@
 using UnityEngine;
 using Zenject;
 
-public interface IScreen
-{
-}
-
-public class Screen : MonoBehaviour, IScreen
-{
-    public class Factory : PlaceholderFactory<UnityEngine.Object, Screen>
-    {
-    }
-}
-
 public class Navigation
 {
     private readonly ScreensContainer screensContainer;
@@ -26,7 +15,7 @@ public class Navigation
         this.screensRectTransformRoot = screensRectTransformRoot;
     }
 
-    public void Push<T>() where T : Screen
+    public void Create<T>() where T : Screen
     {
         var screenPrefab = screensContainer.GetScreenPrefab<T>();
         if (screenPrefab == null) {
@@ -35,5 +24,10 @@ public class Navigation
         }
         var screen = screenFactory.Create(screenPrefab);
         screen.transform.SetParent(screensRectTransformRoot, false);
+    }
+
+    public void Remove(Screen screen)
+    {
+        UnityEngine.Object.Destroy(screen.gameObject);
     }
 }

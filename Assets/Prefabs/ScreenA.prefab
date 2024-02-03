@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5370163806211870868}
   - component: {fileID: 1008201530226665557}
   - component: {fileID: -8599028464525792498}
-  - component: {fileID: 1059467215418393893}
   m_Layer: 5
   m_Name: ScreenA
   m_TagString: Untagged
@@ -94,19 +93,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 6937749799694608290}
   button: {fileID: 318197280010504936}
---- !u!114 &1059467215418393893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2850084716778618716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _containerSource: 2
 --- !u!1 &7928607296242637455
 GameObject:
   m_ObjectHideFlags: 0
