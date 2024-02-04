@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class ScreenAnimatedView : Screen
+public class ScreenAnimatedView : ScreenWithIntent<ScreenIntentTest>
 {
     [SerializeField]
     private ScreenTransition openScreenTransition;
@@ -11,11 +11,6 @@ public class ScreenAnimatedView : Screen
     
     // ToDo: Test what happens with null presenter type
     public override Type GetPresenterType() => null;
-    
-    private void Awake()
-    {
-        openScreenTransition.Animate(transform, OnOpenAnimationComplete);
-    }
 
     private async void OnOpenAnimationComplete()
     {
@@ -26,5 +21,10 @@ public class ScreenAnimatedView : Screen
     private void OnCloseAnimationComplete()
     {
         Debug.Log("Closed Screen");
+    }
+
+    protected override void OnIntentSetCompleted()
+    {
+        openScreenTransition.Animate(transform, OnOpenAnimationComplete);
     }
 }

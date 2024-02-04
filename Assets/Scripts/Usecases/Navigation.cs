@@ -26,7 +26,7 @@ public class Navigation
         screen.transform.SetParent(screensRectTransformRoot, false);
     }
     
-    public void Create<TScreen, TScreenIntent>(TScreenIntent screenIntent) where TScreen : Screen where TScreenIntent : ScreenIntent
+    public void Create<TScreen, TScreenIntent>(TScreenIntent screenIntent) where TScreen : ScreenWithIntent<TScreenIntent> where TScreenIntent : ScreenIntent
     {
         var screenPrefab = screensContainer.GetScreenPrefab<TScreen>();
         if (screenPrefab == null) {
