@@ -20,7 +20,7 @@ public class Navigation
     {
         var screenPrefab = screensContainer.GetScreenPrefab<TScreen>();
         if (screenPrefab == null) {
-            Debug.LogError($"No Screen of type {typeof(TScreen)}");
+            Debug.LogError($"No Screen of type {typeof(TScreen)} in {typeof(ScreensContainer)}");
             return;
         }
         var screen = screenFactory.Create(screenPrefab);
