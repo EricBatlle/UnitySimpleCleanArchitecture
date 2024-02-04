@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class ScreenWithIntent<TScreenIntent> : Screen where TScreenIntent : ScreenIntent
 {
     [SerializeField]
-    private TScreenIntent intent = null;
+    private TScreenIntent intent;
     
     protected TScreenIntent Intent {
         get {
@@ -17,9 +17,10 @@ public abstract class ScreenWithIntent<TScreenIntent> : Screen where TScreenInte
 
     protected abstract void OnIntentSetCompleted();
 
-    public void SetIntent(TScreenIntent screenIntent)
+    public void SetIntentAndShow(TScreenIntent screenIntent)
     {
         Intent = screenIntent;
         OnIntentSetCompleted();
+        Show();
     }
 }

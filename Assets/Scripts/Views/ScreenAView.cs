@@ -18,6 +18,11 @@ public class ScreenAView : Screen
     {
         Debug.Log("Initialize ScreenAViewInjection");
         this.presenter = presenter;
-        button.onClick.AddListener(() => presenter.CloseScreen(this));
+        button.onClick.AddListener(OnButtonClicked);
+    }
+
+    private void OnButtonClicked()
+    {
+        presenter.OnButtonClicked(this);
     }
 }

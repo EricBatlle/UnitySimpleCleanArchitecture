@@ -20,7 +20,7 @@ public class ScreenAPresenter
         Debug.Log($"Hello from {this}");
     }
 
-    public void CloseScreen(Screen screen)
+    public void OnButtonClicked(Screen screen)
     {
         navigation.Remove(screen);
         navigation.Create<ScreenAnimatedView, ScreenIntentTest>(new ScreenIntentTest());

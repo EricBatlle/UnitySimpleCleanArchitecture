@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -6,7 +7,7 @@ public class Navigation
     private readonly ScreensContainer screensContainer;
     private readonly Screen.Factory screenFactory;
     private readonly RectTransform screensRectTransformRoot;
-
+    
     [Inject]
     public Navigation(ScreensContainer screensContainer, Screen.Factory screenFactory, RectTransform screensRectTransformRoot)
     {
@@ -24,6 +25,7 @@ public class Navigation
         }
         var screen = screenFactory.Create(screenPrefab);
         screen.transform.SetParent(screensRectTransformRoot, false);
+        screen.Show();
     }
     
     public void Create<TScreen, TScreenIntent>(TScreenIntent screenIntent) where TScreen : ScreenWithIntent<TScreenIntent> where TScreenIntent : ScreenIntent
@@ -39,8 +41,8 @@ public class Navigation
             return;
         }
         
-        screen.SetIntent(screenIntent);
         screen.transform.SetParent(screensRectTransformRoot, false);
+        screen.SetIntentAndShow(screenIntent);
     }
 
     public void Remove(Screen screen)

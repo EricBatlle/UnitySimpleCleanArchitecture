@@ -93,8 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eacb651a28ed43e1a4a798ee13f3183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHided: 0
   openScreenTransition: {fileID: 2807320708906976086}
   closeScreenTransition: {fileID: 3678156687620620063}
+  intent:
+    text: Test
+  hideButton: {fileID: 318197280010504936}
 --- !u!114 &3678156687620620063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,4 +422,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Hide

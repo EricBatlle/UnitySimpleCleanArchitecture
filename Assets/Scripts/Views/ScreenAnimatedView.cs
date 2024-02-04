@@ -1,30 +1,31 @@
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
 
 public class ScreenAnimatedView : ScreenWithIntent<ScreenIntentTest>
 {
     [SerializeField]
-    private ScreenTransition openScreenTransition;
-    [SerializeField]
-    private ScreenTransition closeScreenTransition;
+    private Button hideButton;
     
-    // ToDo: Test what happens with null presenter type
-    public override Type GetPresenterType() => null;
-
-    private async void OnOpenAnimationComplete()
+    public override Type GetPresenterType() => typeof(ScreenAnimatedPresenter);
+    private ScreenAnimatedPresenter presenter;
+    
+    [Inject]
+    public void Initialize(ScreenAnimatedPresenter presenter)
     {
-        await Task.Delay(1000);
-        closeScreenTransition.Animate(transform, OnCloseAnimationComplete);
+        this.presenter = presenter;
+        hideButton.onClick.AddListener(Hide);
     }
-
-    private void OnCloseAnimationComplete()
-    {
-        Debug.Log("Closed Screen");
-    }
-
+    
     protected override void OnIntentSetCompleted()
     {
-        openScreenTransition.Animate(transform, OnOpenAnimationComplete);
+        hideButton.GetComponentInChildren<Text>().text = Intent.Text;
+    }
+
+    protected override void OnHideAnimationComplete()
+    {
+        base.OnHideAnimationComplete();
+        presenter.RemoveScreen(this);
     }
 }
