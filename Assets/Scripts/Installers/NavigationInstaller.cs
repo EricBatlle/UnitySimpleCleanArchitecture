@@ -23,6 +23,9 @@ public class NavigationInstaller : MonoInstaller
     {
         var presenters = screensContainer.GetScreensPresenters();
         foreach (var presenterType in presenters) {
+            if (presenterType == null) {
+                continue;
+            }
             Container.Bind(presenterType).AsSingle();
         }
     }

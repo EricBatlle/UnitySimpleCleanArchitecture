@@ -23,7 +23,7 @@ public class ScreenAPresenter
     public void CloseScreen(Screen screen)
     {
         navigation.Remove(screen);
-        navigation.Create<ScreenWithIntentView, ScreenIntentTest>(new ScreenIntentTest());
+        navigation.Create<ScreenAnimatedView>();
     }
     
     private void OnCountIncremented(CountIncrementedSignal signal)
