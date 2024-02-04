@@ -15,14 +15,31 @@ public class Navigation
         this.screensRectTransformRoot = screensRectTransformRoot;
     }
 
-    public void Create<T>() where T : Screen
+    public void Create<TScreen>() where TScreen : Screen
     {
-        var screenPrefab = screensContainer.GetScreenPrefab<T>();
+        var screenPrefab = screensContainer.GetScreenPrefab<TScreen>();
         if (screenPrefab == null) {
-            Debug.LogError($"No Screen of type {typeof(T)}");
+            Debug.LogError($"No Screen of type {typeof(TScreen)}");
             return;
         }
         var screen = screenFactory.Create(screenPrefab);
+        screen.transform.SetParent(screensRectTransformRoot, false);
+    }
+    
+    public void Create<TScreen, TScreenIntent>(TScreenIntent screenIntent) where TScreen : Screen where TScreenIntent : ScreenIntent
+    {
+        var screenPrefab = screensContainer.GetScreenPrefab<TScreen>();
+        if (screenPrefab == null) {
+            Debug.LogError($"No Screen of type {typeof(TScreen)}");
+            return;
+        }
+        var screen = screenFactory.Create(screenPrefab) as ScreenWithIntent<TScreenIntent>;
+        if (screen == null) {
+            Debug.LogError($"Trying to create screen of type {typeof(TScreen)} with Intent of type {typeof(TScreenIntent)}. Probably Screen is not marked as ScreenWithIntent.");
+            return;
+        }
+        
+        screen.SetIntent(screenIntent);
         screen.transform.SetParent(screensRectTransformRoot, false);
     }
 

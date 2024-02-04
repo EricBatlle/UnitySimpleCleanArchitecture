@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenPrefabs:
   - {fileID: 2850084716778618716, guid: 0352e1f3a73914b93a42acff822f1fe4, type: 3}
+  - {fileID: 2850084716778618716, guid: 54e9108a760f94d8ca14197854cbd3be, type: 3}
