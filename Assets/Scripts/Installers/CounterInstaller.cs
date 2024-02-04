@@ -10,9 +10,7 @@ namespace SCA
         public override void InstallBindings()
         {
             Debug.Log($"Installing {this.name}");
-
-            SignalBusInstaller.Install(Container);
-
+            
             Container.DeclareSignal<CountIncrementedSignal>();
 
             Container.Bind<ICountDBGateway>().To<CountDBGateway>().AsSingle();
