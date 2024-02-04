@@ -27,6 +27,7 @@ public abstract class Screen : MonoBehaviour
     public virtual void Show()
     {
         if (openScreenTransition == null) {
+            OnOpenAnimationComplete();
             return;
         }
         openScreenTransition.Animate(transform, OnOpenAnimationComplete);
@@ -35,6 +36,7 @@ public abstract class Screen : MonoBehaviour
     protected virtual void Hide()
     {
         if (isHided || closeScreenTransition == null) {
+            OnHideAnimationComplete();
             return;
         }
         closeScreenTransition.Animate(transform, OnHideAnimationComplete);
