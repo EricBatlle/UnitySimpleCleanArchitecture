@@ -11,7 +11,7 @@ public class ScreenAPresenter
     {
         this.signalBus = signalBus;
         this.navigation = navigation;
-        signalBus.Subscribe<CountIncrementedSignal>(OnCountIncremented);
+        //signalBus.Subscribe<CountIncrementedSignal>(OnCountIncremented);
         SayHello();
     }
     
@@ -26,8 +26,8 @@ public class ScreenAPresenter
         navigation.Create<ScreenAnimatedView, ScreenIntentTest>(new ScreenIntentTest());
     }
     
-    private void OnCountIncremented(CountIncrementedSignal signal)
-    {
-       // UpdateCountView(signal.counts);
-    }
+    //private void OnCountIncremented(CountIncrementedSignal signal)
+    //{
+    //   // UpdateCountView(signal.counts);
+    //}
 }

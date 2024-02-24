@@ -11,13 +11,13 @@ public class InstantiateScreenAUseCase
     {
         this.signalBus = signalBus;
         this.navigation = navigation;
-        signalBus.Subscribe<CountIncrementedSignal>(OnCountIncremented);
+        //signalBus.Subscribe<CountIncrementedSignal>(OnCountIncremented);
     }
     
-    private void OnCountIncremented(CountIncrementedSignal signal)
-    {
-        if (signal.GetTotalCount() > 3) {
-            navigation.Create<ScreenAView>();
-        }
-    }
+    //private void OnCountIncremented(CountIncrementedSignal signal)
+    //{
+    //    if (signal.GetTotalCount() > 3) {
+    //        navigation.Create<ScreenAView>();
+    //    }
+    //}
 }
