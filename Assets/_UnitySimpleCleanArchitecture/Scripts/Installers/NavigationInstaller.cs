@@ -4,10 +4,10 @@ using Zenject;
 public class NavigationInstaller : MonoInstaller
 {
 	[SerializeField]
-	public ScreensContainer screensContainer;
+	private ScreensContainer screensContainer;
 
 	[SerializeField]
-	public RectTransform screensRootRectTransform;
+	private RectTransform screensRootRectTransform;
 
 	public override void InstallBindings()
 	{
@@ -21,6 +21,12 @@ public class NavigationInstaller : MonoInstaller
 
 	private void BindPresenters()
 	{
+		if(screensContainer == null)
+		{
+			Debug.LogError($"Screens Container is not assigned in {this.name}");
+			return;
+		}
+
 		var presenters = screensContainer.GetScreensPresenters();
 		foreach (var presenterType in presenters)
 		{
