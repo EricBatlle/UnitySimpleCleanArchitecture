@@ -1,14 +1,17 @@
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class MetaScreenPresenter
 {
-	private Navigation navigation;
 	private MetaScreen screen;
+	private Navigation navigation;
+	private SceneTransitioner sceneTransitioner;
 
 	[Inject]
-	public void Initialize(Navigation navigation)
+	public void Initialize(Navigation navigation, SceneTransitioner sceneTransitioner)
 	{
 		this.navigation = navigation;
+		this.sceneTransitioner = sceneTransitioner;
 	}
 
 	public void CreateScreen()
@@ -23,6 +26,6 @@ public class MetaScreenPresenter
 
 	public void OnPlayButtonClicked()
 	{
-
+		sceneTransitioner.TransitionFromTo(SceneManager.GetActiveScene().name, ScenesNames.GAME_SCENE_NAME);
 	}
 }

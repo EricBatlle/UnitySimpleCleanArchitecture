@@ -23,7 +23,7 @@ public class NavigationInstaller : MonoInstaller
 	{
 		if(screensContainer == null)
 		{
-			Debug.LogError($"Screens Container is not assigned in {this.name}");
+			Debug.LogWarning($"Screens Container is not assigned in {this.name}");
 			return;
 		}
 

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_UnitySimpleCleanArchitecture/Scenes/TransitionScene.unity
+    guid: ed28e6705ff1cd640b5e01e5296e61ac
+  - enabled: 1
+    path: Assets/_UnitySimpleCleanArchitecture/Scenes/MetaScene.unity
+    guid: aa0405ed905864644abed69dc84393af
+  - enabled: 1
+    path: Assets/_UnitySimpleCleanArchitecture/Scenes/GameScene.unity
+    guid: 2e99dea0e409fa94b82180a8ec8f13a1
   m_configObjects: {}
