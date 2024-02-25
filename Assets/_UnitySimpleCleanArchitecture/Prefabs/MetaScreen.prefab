@@ -139,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024315263456803314, guid: 522a23842ed15194bad7224a40326da2, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
       propertyPath: m_Pivot.x
@@ -176,6 +176,18 @@ PrefabInstance:
     - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,6 +237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 522a23842ed15194bad7224a40326da2, type: 3}
 --- !u!224 &1398707613946652201 stripped
@@ -237,21 +253,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1986937187783658289, guid: 522a23842ed15194bad7224a40326da2, type: 3}
   m_PrefabInstance: {fileID: 6436912837354365549}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &897577661667648196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4811962917273692508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5df1970b3f47efa40f076b2e9501a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.35
-  easeIn: 27
---- !u!114 &3336224887812330822
+--- !u!114 &437575604268254285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,8 +265,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f5d029eb39407996111c05d1855c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.35
+  duration: 2.35
   easeOut: 26
+--- !u!114 &6496434885546196431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811962917273692508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5df1970b3f47efa40f076b2e9501a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2.35
+  easeIn: 27
 --- !u!114 &6746167464114786041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,8 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHided: 0
-  openScreenTransition: {fileID: 897577661667648196}
-  closeScreenTransition: {fileID: 3336224887812330822}
+  openScreenTransition: {fileID: 6496434885546196431}
+  closeScreenTransition: {fileID: 437575604268254285}
   playButton: {fileID: 5353407305250335160}
 --- !u!1001 &8008864083665892545
 PrefabInstance:

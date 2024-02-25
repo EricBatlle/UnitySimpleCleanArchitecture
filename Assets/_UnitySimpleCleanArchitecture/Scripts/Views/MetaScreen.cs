@@ -25,6 +25,6 @@ public class MetaScreen : Screen
 
 	private void OnPlayButton()
 	{
-		presenter.OnPlayButtonClicked();
+		presenter.OnPlayButtonClickedAsync();
 	}
 }

@@ -11,7 +11,7 @@ public class NavigationInstaller : MonoInstaller
 
 	public override void InstallBindings()
 	{
-		Debug.Log($"Installing {this.name}");
+		Debug.Log($"Installing {typeof(NavigationInstaller)}");
 		Container.BindInstance(screensContainer);
 		Container.BindInstance(screensRootRectTransform);
 		Container.BindFactory<UnityEngine.Object, Screen, Screen.Factory>().FromFactory<PrefabFactory<Screen>>();

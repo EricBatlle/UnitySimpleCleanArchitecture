@@ -1,11 +1,19 @@
 using UnityEngine;
 using Zenject;
 
+public class ProjectNavigation : Navigation 
+{
+	[Inject]
+	public ProjectNavigation(ScreensContainer screensContainer, Screen.Factory screenFactory, RectTransform screensRectTransformRoot) : base(screensContainer, screenFactory, screensRectTransformRoot)
+	{
+	}
+}
+
 public class Navigation
 {
-	private readonly ScreensContainer screensContainer;
-	private readonly Screen.Factory screenFactory;
-	private readonly RectTransform screensRectTransformRoot;
+	protected readonly ScreensContainer screensContainer;
+	protected readonly Screen.Factory screenFactory;
+	protected readonly RectTransform screensRectTransformRoot;
 
 	[Inject]
 	public Navigation(ScreensContainer screensContainer, Screen.Factory screenFactory, RectTransform screensRectTransformRoot)
@@ -25,6 +33,13 @@ public class Navigation
 		}
 		var screen = screenFactory.Create(screenPrefab);
 		screen.transform.SetParent(screensRectTransformRoot, false);
+		var rectTransform = screen.GetComponent<RectTransform>();
+		rectTransform.anchorMin = Vector2.zero;
+		rectTransform.anchorMax = new Vector2(1, 1);
+		rectTransform.anchoredPosition = Vector2.zero;
+		rectTransform.sizeDelta = Vector2.zero;
+		rectTransform.pivot = new Vector2(0.5f, 0.5f);
+
 		screen.Show();
 		return (TScreen)screen;
 	}

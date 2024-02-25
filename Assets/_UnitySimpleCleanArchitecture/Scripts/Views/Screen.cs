@@ -3,6 +3,7 @@ using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
 
+[RequireComponent(typeof(RectTransform))]
 public abstract class Screen : MonoBehaviour
 {
 	[SerializeField]
@@ -14,14 +15,19 @@ public abstract class Screen : MonoBehaviour
 
 	public abstract Type GetPresenterType();
 
+	public Action OpenAnimationComplete;
+	public Action HideAnimationComplete;
+
 	protected virtual void OnOpenAnimationComplete()
 	{
 		isHided = false;
+		OpenAnimationComplete?.Invoke();
 	}
 
 	protected virtual void OnHideAnimationComplete()
 	{
 		isHided = true;
+		HideAnimationComplete?.Invoke();
 	}
 
 	public virtual void Show()
@@ -34,7 +40,7 @@ public abstract class Screen : MonoBehaviour
 		openScreenTransition.Animate(transform, OnOpenAnimationComplete);
 	}
 
-	protected virtual void Hide()
+	public virtual void Hide()
 	{
 		if (isHided || closeScreenTransition == null)
 		{
