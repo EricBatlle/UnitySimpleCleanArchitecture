@@ -1,0 +1,23 @@
+using UnityEngine;
+
+public class #SCRIPTNAME#
+{
+	private Screen screen;
+	private Navigation navigation;
+
+	[Inject]
+	public void Initialize(Navigation navigation)
+	{
+		this.navigation = navigation;
+	}
+
+	public void CreateScreen()
+	{
+		screen = navigation.Create<Screen>();
+	}
+
+	public void RemoveScreen()
+	{
+		navigation.Remove(screen);
+	}
+}

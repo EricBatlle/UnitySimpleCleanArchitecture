@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : Screen
+{
+	public override Type GetPresenterType() => typeof(Presenter);
+	
+	private MetaScreenPresenter presenter;
+
+	[Inject]
+	public void Inject(Presenter presenter)
+	{
+		this.presenter = presenter;
+	}
+}
