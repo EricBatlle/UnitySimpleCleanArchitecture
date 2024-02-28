@@ -24,8 +24,8 @@ public class MetaScreenPresenter
 		navigation.Remove(screen);
 	}
 
-	public void OnPlayButtonClickedAsync()
+	public async void OnPlayButtonClickedAsync()
 	{
-		sceneTransitioner.TransitionFromTo(SceneManager.GetActiveScene().name, ScenesNames.GAME_SCENE_NAME);
+		await sceneTransitioner.TransitionTo(ScenesNames.GAME_SCENE_NAME);
 	}
 }

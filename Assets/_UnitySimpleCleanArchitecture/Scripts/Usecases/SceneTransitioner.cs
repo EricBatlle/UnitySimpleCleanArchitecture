@@ -12,7 +12,12 @@ public class SceneTransitioner
 		this.transitionPresenter = transitionPresenter;
 	}
 
-	public async void TransitionFromTo(string originSceneName, string destinationSceneName, Action OnTransitionEnd = null)
+	public async Task TransitionTo(string destinationSceneName, Action OnTransitionEnd = null)
+	{
+		await TransitionFromTo(SceneManager.GetActiveScene().name, destinationSceneName, OnTransitionEnd);
+	}
+	
+	public async Task TransitionFromTo(string originSceneName, string destinationSceneName, Action OnTransitionEnd = null)
 	{
 		await LoadScene(ScenesNames.TRANSITION_SCENE_NAME, LoadSceneMode.Additive);
 		transitionPresenter.CreateScreen();
