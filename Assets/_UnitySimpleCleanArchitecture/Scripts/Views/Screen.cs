@@ -7,6 +7,8 @@ using Object = UnityEngine.Object;
 public abstract class Screen : MonoBehaviour
 {
 	[SerializeField]
+	private RectTransform rectTransform;
+	[SerializeField]
 	protected bool isHided;
 	[SerializeField]
 	protected ScreenTransition openScreenTransition;
@@ -48,6 +50,15 @@ public abstract class Screen : MonoBehaviour
 			return;
 		}
 		closeScreenTransition.Animate(transform, OnHideAnimationComplete);
+	}
+
+	public void StretchCompletly()
+	{
+		this.rectTransform.anchorMin = Vector2.zero;
+		this.rectTransform.anchorMax = new Vector2(1, 1);
+		this.rectTransform.anchoredPosition = Vector2.zero;
+		this.rectTransform.sizeDelta = Vector2.zero;
+		this.rectTransform.pivot = new Vector2(0.5f, 0.5f);
 	}
 
 	public class Factory : PlaceholderFactory<Object, Screen>

@@ -33,12 +33,7 @@ public class Navigation
 		}
 		var screen = screenFactory.Create(screenPrefab);
 		screen.transform.SetParent(screensRectTransformRoot, false);
-		var rectTransform = screen.GetComponent<RectTransform>();
-		rectTransform.anchorMin = Vector2.zero;
-		rectTransform.anchorMax = new Vector2(1, 1);
-		rectTransform.anchoredPosition = Vector2.zero;
-		rectTransform.sizeDelta = Vector2.zero;
-		rectTransform.pivot = new Vector2(0.5f, 0.5f);
+		screen.StretchCompletly();
 
 		screen.Show();
 		return (TScreen)screen;

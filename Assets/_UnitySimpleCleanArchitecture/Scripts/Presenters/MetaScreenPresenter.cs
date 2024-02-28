@@ -26,7 +26,6 @@ public class MetaScreenPresenter
 
 	public void OnPlayButtonClickedAsync()
 	{
-		//sceneTransitioner.TransitionFromTo(SceneManager.GetActiveScene().name, ScenesNames.GAME_SCENE_NAME);
-		navigation.Create<MetaScreen>();
+		sceneTransitioner.TransitionFromTo(SceneManager.GetActiveScene().name, ScenesNames.GAME_SCENE_NAME);
 	}
 }

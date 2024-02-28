@@ -139,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024315263456803314, guid: 522a23842ed15194bad7224a40326da2, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5349633371071054916, guid: 522a23842ed15194bad7224a40326da2, type: 3}
       propertyPath: m_Pivot.x
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b43af2d114933c41a0fec0bf616296f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 1398707613946652201}
   isHided: 0
   openScreenTransition: {fileID: 6496434885546196431}
   closeScreenTransition: {fileID: 437575604268254285}

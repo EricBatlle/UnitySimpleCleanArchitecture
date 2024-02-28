@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9720e8a333293f4aaacbde0f72c128f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 9066380283145777176}
   isHided: 0
   openScreenTransition: {fileID: 736919211559451480}
   closeScreenTransition: {fileID: 736919211559451479}
