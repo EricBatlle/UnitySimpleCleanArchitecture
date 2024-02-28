@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -32,24 +33,26 @@ public abstract class Screen : MonoBehaviour
 		HideAnimationComplete?.Invoke();
 	}
 
-	public virtual void Show()
+	public virtual async Task Show()
 	{
 		if (openScreenTransition == null)
 		{
 			OnOpenAnimationComplete();
 			return;
 		}
-		openScreenTransition.Animate(transform, OnOpenAnimationComplete);
+		await openScreenTransition.Animate(transform);
+		OnOpenAnimationComplete();
 	}
 
-	public virtual void Hide()
+	public virtual async Task Hide()
 	{
 		if (isHided || closeScreenTransition == null)
 		{
 			OnHideAnimationComplete();
 			return;
 		}
-		closeScreenTransition.Animate(transform, OnHideAnimationComplete);
+		await closeScreenTransition.Animate(transform);
+		OnHideAnimationComplete();
 	}
 
 	public void StretchCompletly()

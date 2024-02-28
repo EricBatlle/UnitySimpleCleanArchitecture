@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class ScreenWithIntent<TScreenIntent> : Screen where TScreenIntent : ScreenIntent
@@ -20,10 +21,10 @@ public abstract class ScreenWithIntent<TScreenIntent> : Screen where TScreenInte
 
 	protected abstract void OnIntentSetCompleted();
 
-	public void SetIntentAndShow(TScreenIntent screenIntent)
+	public async Task SetIntentAndShow(TScreenIntent screenIntent)
 	{
 		Intent = screenIntent;
 		OnIntentSetCompleted();
-		Show();
+		await Show();
 	}
 }

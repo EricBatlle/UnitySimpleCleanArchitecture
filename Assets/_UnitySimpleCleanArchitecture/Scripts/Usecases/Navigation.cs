@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -59,8 +60,9 @@ public class Navigation
 		return (TScreen)screen;
 	}
 
-	public void Remove(Screen screen)
+	public async Task Remove(Screen screen)
 	{
-		UnityEngine.Object.Destroy(screen.gameObject);
+		await screen.Hide();
+		Object.Destroy(screen.gameObject);
 	}
 }

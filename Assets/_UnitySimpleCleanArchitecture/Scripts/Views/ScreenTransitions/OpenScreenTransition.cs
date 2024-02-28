@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class OpenScreenTransition : ScreenTransition
@@ -11,12 +12,12 @@ public class OpenScreenTransition : ScreenTransition
 
 	private Tween openCloseTween;
 
-	public override void Animate(Transform target, Action onComplete = null)
+	public override async Task Animate(Transform target)
 	{
 		target.localScale = Vector3.zero;
 		openCloseTween?.Kill();
 		openCloseTween = target.DOScale(Vector3.one, duration)
-			.SetEase(easeIn)
-			.OnComplete(() => onComplete?.Invoke());
+			.SetEase(easeIn);
+		await openCloseTween.AsyncWaitForCompletion();
 	}
 }
