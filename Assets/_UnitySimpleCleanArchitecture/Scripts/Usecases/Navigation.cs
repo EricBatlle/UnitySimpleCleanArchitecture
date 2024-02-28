@@ -32,7 +32,7 @@ public class Navigation
 			return null;
 		}
 		var screen = screenFactory.Create(screenPrefab);
-		screen.transform.SetParent(screensRectTransformRoot, false);
+		screen.GetComponent<RectTransform>().SetParent(screensRectTransformRoot, false);
 		var rectTransform = screen.GetComponent<RectTransform>();
 		rectTransform.anchorMin = Vector2.zero;
 		rectTransform.anchorMax = new Vector2(1, 1);

@@ -6,6 +6,10 @@ using Zenject;
 public class MetaScreen : Screen
 {
 	[SerializeField]
+	private RectTransform parent;
+	[SerializeField]
+	private GameObject A;
+	[SerializeField]
 	private Button playButton;
 
 	public override Type GetPresenterType() => typeof(MetaScreenPresenter);
@@ -23,6 +27,7 @@ public class MetaScreen : Screen
 		playButton.onClick.AddListener(OnPlayButton);
 	}
 
+	[ContextMenu("Play")]
 	private void OnPlayButton()
 	{
 		presenter.OnPlayButtonClickedAsync();
