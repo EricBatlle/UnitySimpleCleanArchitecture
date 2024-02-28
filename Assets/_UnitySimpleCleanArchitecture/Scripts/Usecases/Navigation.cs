@@ -36,7 +36,9 @@ public class Navigation
 		screen.transform.SetParent(screensRectTransformRoot, false);
 		screen.StretchCompletly();
 
+#pragma warning disable CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		screen.Show();
+#pragma warning restore CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		return (TScreen)screen;
 	}
 
@@ -56,11 +58,13 @@ public class Navigation
 		}
 
 		screen.transform.SetParent(screensRectTransformRoot, false);
+#pragma warning disable CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		screen.SetIntentAndShow(screenIntent);
+#pragma warning restore CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		return (TScreen)screen;
 	}
 
-	public async Task Remove(Screen screen)
+	public async void Remove(Screen screen)
 	{
 		await screen.Hide();
 		Object.Destroy(screen.gameObject);

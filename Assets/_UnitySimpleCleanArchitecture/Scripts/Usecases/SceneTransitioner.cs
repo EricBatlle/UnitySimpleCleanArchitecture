@@ -25,7 +25,7 @@ public class SceneTransitioner
 		await transitionPresenter.OpenAnimationComplete();
 		await UnloadScene(originSceneName);
 		await LoadScene(destinationSceneName, LoadSceneMode.Additive);
-		transitionPresenter.RemoveScreen();
+		await transitionPresenter.HideScreen();
 		await transitionPresenter.HideAnimationComplete();
 		await UnloadScene(ScenesNames.TRANSITION_SCENE_NAME);
 	}

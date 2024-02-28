@@ -23,9 +23,9 @@ public class TransitionScreenPresenter
 		screen.HideAnimationComplete += OnHideAnimationComplete;
 	}
 
-	public void RemoveScreen()
+	public async Task HideScreen()
 	{
-		screen.Hide();
+		await screen.Hide();
 	}
 
 	public Task OpenAnimationComplete()
