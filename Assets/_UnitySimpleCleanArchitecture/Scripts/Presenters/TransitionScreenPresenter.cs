@@ -7,7 +7,6 @@ public class TransitionScreenPresenter
 	private ProjectNavigation navigation;
 
 	private TaskCompletionSource<bool> openAnimationTaskCompletionSource;
-	private TaskCompletionSource<bool> hideAnimationTaskCompletionSource;
 
 
 	[Inject]
@@ -20,12 +19,11 @@ public class TransitionScreenPresenter
 	{
 		screen = navigation.Create<TransitionScreen>();
 		screen.OpenAnimationComplete += OnOpenAnimationComplete;
-		screen.HideAnimationComplete += OnHideAnimationComplete;
 	}
 
-	public async Task HideScreen()
+	public async Task HideAndRemoveScreen()
 	{
-		await screen.Hide();
+		await navigation.HideAndRemove(screen);
 	}
 
 	public Task OpenAnimationComplete()
@@ -34,20 +32,9 @@ public class TransitionScreenPresenter
 		return openAnimationTaskCompletionSource.Task;
 	}
 
-	public Task HideAnimationComplete()
-	{
-		hideAnimationTaskCompletionSource = new TaskCompletionSource<bool>();
-		return hideAnimationTaskCompletionSource.Task;
-	}
 
 	private void OnOpenAnimationComplete()
 	{
 		openAnimationTaskCompletionSource.SetResult(true);
-	}
-	
-	private void OnHideAnimationComplete()
-	{
-		hideAnimationTaskCompletionSource.SetResult(true);
-		navigation.Remove(screen);
 	}
 }
