@@ -14,7 +14,10 @@ public class NavigationInstaller : MonoInstaller
 		Debug.Log($"Installing {typeof(NavigationInstaller)}");
 		Container.BindInstance(screensContainer);
 		Container.BindInstance(screensRootRectTransform);
-		Container.BindFactory<UnityEngine.Object, Screen, Screen.Factory>().FromFactory<PrefabFactory<Screen>>();
+		
+		Container.Bind<ScreenFactory>().AsCached();
+		Container.BindFactory<Object, Screen, Screen.Factory>().FromFactory<ScreenFactory>();
+		
 		Container.Bind<Navigation>().AsSingle();
 		BindPresenters();
 	}

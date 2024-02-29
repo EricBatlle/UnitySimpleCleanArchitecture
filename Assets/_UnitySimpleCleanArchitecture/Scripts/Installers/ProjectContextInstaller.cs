@@ -17,7 +17,9 @@ public class ProjectContextInstaller : MonoInstaller
 
 		Container.BindInstance(screensContainer);
 		Container.BindInstance(screensRootRectTransform);
-		Container.BindFactory<UnityEngine.Object, Screen, Screen.Factory>().FromFactory<PrefabFactory<Screen>>();
+		
+		Container.Bind<ScreenFactory>().AsCached();
+		Container.BindFactory<Object, Screen, Screen.Factory>().FromFactory<ScreenFactory>();
 
 		Container.Bind<ProjectNavigation>().AsSingle();
 		Container.Bind<TransitionScreenPresenter>().AsSingle().NonLazy();

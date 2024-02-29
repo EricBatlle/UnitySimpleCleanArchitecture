@@ -1,11 +1,10 @@
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 public class ProjectNavigation : Navigation 
 {
 	[Inject]
-	public ProjectNavigation(ScreensContainer screensContainer, Screen.Factory screenFactory, RectTransform screensRectTransformRoot) : base(screensContainer, screenFactory, screensRectTransformRoot)
+	public ProjectNavigation(ScreensContainer screensContainer, ScreenFactory screenFactory, RectTransform screensRectTransformRoot) : base(screensContainer, screenFactory, screensRectTransformRoot)
 	{
 	}
 }
@@ -13,11 +12,11 @@ public class ProjectNavigation : Navigation
 public class Navigation
 {
 	protected readonly ScreensContainer screensContainer;
-	protected readonly Screen.Factory screenFactory;
+	protected readonly ScreenFactory screenFactory;
 	protected readonly RectTransform screensRectTransformRoot;
 
 	[Inject]
-	public Navigation(ScreensContainer screensContainer, Screen.Factory screenFactory, RectTransform screensRectTransformRoot)
+	public Navigation(ScreensContainer screensContainer, ScreenFactory screenFactory, RectTransform screensRectTransformRoot)
 	{
 		this.screensContainer = screensContainer;
 		this.screenFactory = screenFactory;
@@ -32,13 +31,9 @@ public class Navigation
 			Debug.LogError($"No Screen of type {typeof(TScreen)} in {typeof(ScreensContainer)}");
 			return null;
 		}
-		var screen = screenFactory.Create(screenPrefab);
-		screen.transform.SetParent(screensRectTransformRoot, false);
-		screen.StretchCompletly();
+		var screen = screenFactory.Create(screenPrefab, screensRectTransformRoot);
 
-#pragma warning disable CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		screen.Show();
-#pragma warning restore CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		return (TScreen)screen;
 	}
 
@@ -58,15 +53,12 @@ public class Navigation
 		}
 
 		screen.transform.SetParent(screensRectTransformRoot, false);
-#pragma warning disable CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		screen.SetIntentAndShow(screenIntent);
-#pragma warning restore CS4014 // Dado que no se esperaba esta llamada, la ejecución del método actual continuará antes de que se complete la llamada
 		return (TScreen)screen;
 	}
 
-	public async void Remove(Screen screen)
+	public void Remove(Screen screen)
 	{
-		await screen.Hide();
-		Object.Destroy(screen.gameObject);
+		UnityEngine.Object.Destroy(screen.gameObject);
 	}
 }
