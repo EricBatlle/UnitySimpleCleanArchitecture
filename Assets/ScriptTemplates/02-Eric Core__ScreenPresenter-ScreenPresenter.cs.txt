@@ -6,7 +6,7 @@ public class #SCRIPTNAME#
 	private Navigation navigation;
 
 	[Inject]
-	public void Initialize(Navigation navigation)
+	public void Inject(Navigation navigation)
 	{
 		this.navigation = navigation;
 	}
