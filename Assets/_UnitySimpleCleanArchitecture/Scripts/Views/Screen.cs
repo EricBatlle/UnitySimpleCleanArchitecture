@@ -57,23 +57,3 @@ public abstract class Screen : MonoBehaviour
 	{
 	}
 }
-
-public class ScreenFactory : IFactory<Object, Screen>
-{
-	readonly DiContainer _container;
-
-	public ScreenFactory(DiContainer container)
-	{
-		_container = container;
-	}
-
-	public Screen Create(UnityEngine.Object prefab, Transform parentTransform)
-	{
-		return _container.InstantiatePrefabForComponent<Screen>(prefab, parentTransform);
-	}
-
-	public Screen Create(Object prefab)
-	{
-		return _container.InstantiatePrefabForComponent<Screen>(prefab);
-	}
-}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b91bf90a888440bb95b226cdfe58e3d, type: 3}
+  m_Name: GameSceneScreensContainer
+  m_EditorClassIdentifier: 
+  screenPrefabs:
+  - {fileID: 4811962917273692508, guid: 53b631fb5035415498115ec1e3b5d951, type: 3}
+  - {fileID: 4811962917273692508, guid: ed0504f406d6c274f9678c8a149caee4, type: 3}
