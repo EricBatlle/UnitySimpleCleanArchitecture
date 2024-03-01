@@ -7,7 +7,7 @@ public class StartGameOverlayScreenPresenter
 	private GameService gameService;
 
 	[Inject]
-	public void Initialize(Navigation navigation, GameService gameService, StartGameOverlayScreen screen)
+	public void Inject(Navigation navigation, GameService gameService, StartGameOverlayScreen screen)
 	{
 		this.navigation = navigation;
 		this.gameService = gameService;

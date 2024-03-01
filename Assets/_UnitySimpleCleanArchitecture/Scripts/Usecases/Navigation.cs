@@ -16,7 +16,6 @@ public class Navigation
 	protected readonly ScreenFactory screenFactory;
 	protected readonly RectTransform screensRectTransformRoot;
 
-	[Inject]
 	public Navigation(ScreensContainer screensContainer, ScreenFactory screenFactory, RectTransform screensRectTransformRoot)
 	{
 		this.screensContainer = screensContainer;

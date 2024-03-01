@@ -8,7 +8,7 @@ public class MetaScreenPresenter
 	private SceneTransitioner sceneTransitioner;
 
 	[Inject]
-	public void Initialize(Navigation navigation, SceneTransitioner sceneTransitioner)
+	public void Inject(Navigation navigation, SceneTransitioner sceneTransitioner)
 	{
 		this.navigation = navigation;
 		this.sceneTransitioner = sceneTransitioner;

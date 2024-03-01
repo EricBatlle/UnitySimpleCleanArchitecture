@@ -10,7 +10,7 @@ public class TransitionScreenPresenter
 
 
 	[Inject]
-	public void Initialize(ProjectNavigation navigation)
+	public void Inject(ProjectNavigation navigation)
 	{
 		this.navigation = navigation;
 	}

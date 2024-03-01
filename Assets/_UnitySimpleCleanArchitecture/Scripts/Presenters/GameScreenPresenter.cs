@@ -6,7 +6,7 @@ public class GameScreenPresenter
 	private Navigation navigation;
 
 	[Inject]
-	public void Initialize(Navigation navigation, SceneTransitioner sceneTransitioner, GameScreen screen)
+	public void Inject(Navigation navigation, SceneTransitioner sceneTransitioner, GameScreen screen)
 	{
 		this.navigation = navigation;
 		this.screen = screen;

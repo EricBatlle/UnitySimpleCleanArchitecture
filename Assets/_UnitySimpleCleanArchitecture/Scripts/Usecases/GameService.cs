@@ -1,6 +1,7 @@
 public class GameService
 {
 	private OrdersSpawner ordersSpawner;
+
 	public GameService(OrdersSpawner ordersSpawner)
 	{
 		this.ordersSpawner = ordersSpawner;
