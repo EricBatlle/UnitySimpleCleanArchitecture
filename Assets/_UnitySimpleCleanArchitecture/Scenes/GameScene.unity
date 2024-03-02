@@ -605,6 +605,7 @@ MonoBehaviour:
   startGameOverlay: {fileID: 1649166059}
   orderViewPrefab: {fileID: 8643713336658952491, guid: c66d640492c354442947235d9d2d40a8, type: 3}
   ordersViewParent: {fileID: 331286388}
+  ingredientsContainer: {fileID: 11400000, guid: c0b144405aa97cc4d9e0a6db331cb462, type: 2}
 --- !u!1001 &227304116
 PrefabInstance:
   m_ObjectHideFlags: 0

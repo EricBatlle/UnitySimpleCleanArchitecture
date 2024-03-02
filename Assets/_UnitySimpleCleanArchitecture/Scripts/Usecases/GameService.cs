@@ -1,12 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameService
 {
-	private OrdersSpawner ordersSpawner;
+	private readonly OrdersService ordersService;
 
-	public GameService(PlayerControlsService playerControlsService, OrdersSpawner ordersSpawner)
+	public GameService(PlayerControlsService playerControlsService, OrdersService ordersService)
 	{
-		this.ordersSpawner = ordersSpawner;
+		this.ordersService = ordersService;
 
 		playerControlsService.OnIngredientGameControlClicked += OnIngredientControlClicked;
 	}
@@ -15,7 +16,7 @@ public class GameService
 	{
 		//ToDo: Initialize UI
 		//Create Orders
-		ordersSpawner.CreateOrder(new Order());
+		ordersService.CreateOrder(2);
 	}
 
 	private void OnIngredientControlClicked(IngredientGameControlEventData ingredientControlData)
@@ -24,13 +25,23 @@ public class GameService
 	}
 }
 
-//ToDo: I'm working on this!
 public class OrdersService
 {
-	private OrdersSpawner ordersSpawner;
+	private readonly OrdersViewSpawner ordersViewSpawner;
+	private readonly OrderRandomGenerator orderRandomGenerator;
 
-	public OrdersService(OrdersSpawner ordersSpawner)
+	private readonly List<OrderView> ordersViews = new List<OrderView>();
+
+	public OrdersService(OrdersViewSpawner ordersViewSpawner, OrderRandomGenerator orderRandomGenerator)
 	{
-		this.ordersSpawner = ordersSpawner;
+		this.ordersViewSpawner = ordersViewSpawner;
+		this.orderRandomGenerator = orderRandomGenerator;
+	}
+
+	public void CreateOrder(int maxIngredientsPerOrder)
+	{
+		var order = orderRandomGenerator.Generate(maxIngredientsPerOrder);
+		var orderView = ordersViewSpawner.CreateOrderView(order);
+		ordersViews.Add(orderView);
 	}
 }

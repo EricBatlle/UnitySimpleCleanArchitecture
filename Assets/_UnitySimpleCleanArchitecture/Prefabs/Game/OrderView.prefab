@@ -91,6 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89f34397aa805740a932b8627060bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderText: {fileID: 2140858274097105636}
+  order:
+    requiredIngredients: []
 --- !u!1 &6025636850475322993
 GameObject:
   m_ObjectHideFlags: 0
