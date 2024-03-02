@@ -188,6 +188,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581621071306294196}
     m_Modifications:
+    - target: {fileID: 5175749963736570761, guid: 8a8f2c4789c866d4c915d934dec4afc6, type: 3}
+      propertyPath: m_text
+      value: X
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726240724675864208, guid: 8a8f2c4789c866d4c915d934dec4afc6, type: 3}
+      propertyPath: ingredient
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a83a28108859dc4b951371637214433, type: 2}
     - target: {fileID: 5727959119997481990, guid: 8a8f2c4789c866d4c915d934dec4afc6, type: 3}
       propertyPath: m_Name
       value: Right_IngredientGameTouchControlButton
@@ -286,7 +294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07de6478faa19ca47b1be2be8a354d6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c6615b3c578ca4287863ea6398e1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4108853223618307086 stripped
@@ -304,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 5726240724675864208, guid: 8a8f2c4789c866d4c915d934dec4afc6, type: 3}
       propertyPath: ingredient
       value: 
-      objectReference: {fileID: 11400000, guid: 5a83a28108859dc4b951371637214433, type: 2}
+      objectReference: {fileID: 11400000, guid: c148c0e6984d4a84fb2efd5d5b96cb04, type: 2}
     - target: {fileID: 5727959119997481990, guid: 8a8f2c4789c866d4c915d934dec4afc6, type: 3}
       propertyPath: m_Name
       value: Left_IngredientGameTouchControlButton
@@ -403,7 +411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07de6478faa19ca47b1be2be8a354d6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 52c6615b3c578ca4287863ea6398e1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4499908038438113074 stripped

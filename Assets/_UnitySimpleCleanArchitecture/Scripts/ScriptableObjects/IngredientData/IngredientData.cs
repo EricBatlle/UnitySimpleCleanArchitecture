@@ -5,4 +5,6 @@ public class IngredientData : ScriptableObject
 {
 	[SerializeField]
 	private Ingredient ingredient;
+
+	public Ingredient Ingredient => ingredient;
 }

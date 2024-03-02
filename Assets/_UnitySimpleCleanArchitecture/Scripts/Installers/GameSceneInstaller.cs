@@ -17,6 +17,7 @@ public class GameSceneInstaller : MonoInstaller
 	public override void InstallBindings()
 	{
 		Container.Bind<GameService>().AsSingle();
+		Container.Bind<PlayerControlsService>().AsSingle();
 		Container.Bind<OrdersSpawner>().AsSingle();
 		Container.Bind<PlayerControlsPresenter>().AsSingle();
 		
