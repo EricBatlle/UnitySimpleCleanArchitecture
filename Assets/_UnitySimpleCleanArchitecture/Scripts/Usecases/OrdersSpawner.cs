@@ -13,9 +13,9 @@ public class OrdersSpawner
 		this.parent = parent;
 	}
 
-	public void CreateOrders()
+	public void CreateOrder(Order order)
 	{
-		var orderView = ordersViewFactory.Create(orderViewPrefab);
+		var orderView = ordersViewFactory.Create(orderViewPrefab, order);
 		orderView.transform.SetParent(parent, false);
 	}
 }

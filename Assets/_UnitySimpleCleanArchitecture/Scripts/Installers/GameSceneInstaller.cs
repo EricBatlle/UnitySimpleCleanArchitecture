@@ -26,6 +26,6 @@ public class GameSceneInstaller : MonoInstaller
 
 		Container.Bind<OrderView>().FromInstance(orderViewPrefab).AsSingle();
 		Container.Bind<Transform>().FromInstance(ordersViewParent).AsCached().WhenInjectedInto<OrdersSpawner>();
-		Container.BindFactory<Object, OrderView, OrderView.Factory>().FromFactory<PrefabFactory<OrderView>>();
+		Container.BindFactory<Object, Order, OrderView, OrderView.Factory>().FromFactory<PrefabFactory<Order, OrderView>>();
 	}
 }

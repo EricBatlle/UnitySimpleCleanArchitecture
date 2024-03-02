@@ -15,11 +15,22 @@ public class GameService
 	{
 		//ToDo: Initialize UI
 		//Create Orders
-		ordersSpawner.CreateOrders();
+		ordersSpawner.CreateOrder(new Order());
 	}
 
 	private void OnIngredientControlClicked(IngredientGameControlEventData ingredientControlData)
 	{
 		Debug.Log($"Ingredient {ingredientControlData.IngredientData.Ingredient.Name}");
+	}
+}
+
+//ToDo: I'm working on this!
+public class OrdersService
+{
+	private OrdersSpawner ordersSpawner;
+
+	public OrdersService(OrdersSpawner ordersSpawner)
+	{
+		this.ordersSpawner = ordersSpawner;
 	}
 }
