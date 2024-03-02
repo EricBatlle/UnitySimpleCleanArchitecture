@@ -18,13 +18,13 @@ public class GameSceneInstaller : MonoInstaller
 	{
 		Container.Bind<GameService>().AsSingle();
 		Container.Bind<OrdersSpawner>().AsSingle();
+		Container.Bind<PlayerControlsPresenter>().AsSingle();
 		
 		Container.Bind<GameScreen>().FromInstance(gameScreen).AsSingle();
 		Container.Bind<StartGameOverlayScreen>().FromInstance(startGameOverlay).AsSingle();
 
 		Container.Bind<OrderView>().FromInstance(orderViewPrefab).AsSingle();
 		Container.Bind<Transform>().FromInstance(ordersViewParent).AsCached().WhenInjectedInto<OrdersSpawner>();
-		Container.Bind<Transform>().FromInstance(gameScreen.transform).AsCached().WhenNotInjectedInto<OrdersSpawner>();
-		Container.BindFactory<UnityEngine.Object, OrderView, OrderView.Factory>().FromFactory<PrefabFactory<OrderView>>();
+		Container.BindFactory<Object, OrderView, OrderView.Factory>().FromFactory<PrefabFactory<OrderView>>();
 	}
 }
