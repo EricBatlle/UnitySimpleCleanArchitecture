@@ -604,7 +604,7 @@ MonoBehaviour:
   gameScreen: {fileID: 344076966}
   startGameOverlay: {fileID: 1649166059}
   orderViewPrefab: {fileID: 8643713336658952491, guid: c66d640492c354442947235d9d2d40a8, type: 3}
-  ordersViewParent: {fileID: 0}
+  ordersViewParent: {fileID: 331286388}
 --- !u!1001 &227304116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 179125374197226256, guid: 63dbb2bb359ec7a4190a986335c8a46c, type: 3}
       propertyPath: m_Name
-      value: PlayerControls
+      value: PlayerControlsView
       objectReference: {fileID: 0}
     - target: {fileID: 4108853223618307086, guid: 63dbb2bb359ec7a4190a986335c8a46c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -754,6 +754,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63dbb2bb359ec7a4190a986335c8a46c, type: 3}
+--- !u!224 &331286388 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 733647816001182175, guid: 6d40d39fc6c4e184cb4ecd6d2a9abc25, type: 3}
+  m_PrefabInstance: {fileID: 1414772243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &344076966 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8004164351792264304, guid: 53b631fb5035415498115ec1e3b5d951, type: 3}
