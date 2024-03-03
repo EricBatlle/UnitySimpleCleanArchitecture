@@ -111,9 +111,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5727959119997481990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c6615b3c578ca4287863ea6398e1ec, type: 3}
+  m_Script: {fileID: 11500000, guid: b87740a4fd42eda418319c27ac818aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 7762090660195465438}
   button: {fileID: 6743584643076840437}
   ingredient: {fileID: 0}
 --- !u!114 &6743584643076840437 stripped
