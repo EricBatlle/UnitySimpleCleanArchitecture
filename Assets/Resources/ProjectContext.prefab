@@ -196,12 +196,8 @@ PrefabInstance:
       value: Main Camera_UI
       objectReference: {fileID: 0}
     - target: {fileID: 7603277113602451459, guid: a71a4843584d548e68bdb5e6e82b5c85, type: 3}
-      propertyPath: m_Depth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7603277113602451459, guid: a71a4843584d548e68bdb5e6e82b5c85, type: 3}
       propertyPath: m_ClearFlags
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7603277113602451460, guid: a71a4843584d548e68bdb5e6e82b5c85, type: 3}
       propertyPath: m_RootOrder
