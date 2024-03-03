@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: IngredientY
   m_EditorClassIdentifier: 
   ingredient:
+    id: 1
     name: Y
     value: 1
+  model3D: {fileID: 9163106685633110534, guid: 2dc7a8bab840281439521c472810c7ea, type: 3}

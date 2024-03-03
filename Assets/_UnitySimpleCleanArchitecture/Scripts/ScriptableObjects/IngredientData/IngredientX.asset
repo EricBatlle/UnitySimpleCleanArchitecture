@@ -15,3 +15,4 @@ MonoBehaviour:
   ingredient:
     name: X
     value: 0
+  model3D: {fileID: 8388024619306267563, guid: 60662152470ca704b8199c613045678b, type: 3}
