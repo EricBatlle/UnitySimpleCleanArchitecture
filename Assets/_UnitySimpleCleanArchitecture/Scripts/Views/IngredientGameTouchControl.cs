@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class IngredientGameTouchControl : MonoBehaviour
 {
 	[SerializeField]
+	private RectTransform rectTransform;
+	[SerializeField]
 	private Button button;
 	[SerializeField]
 	private IngredientData ingredient;
+
+	public int IngredientId => ingredient.IngredientId;
+	public RectTransform RectTransform => rectTransform;
 
 	public event Action<IngredientData> OnClick;
 
