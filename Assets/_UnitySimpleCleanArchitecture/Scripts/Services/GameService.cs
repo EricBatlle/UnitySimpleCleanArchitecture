@@ -1,13 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameService
 {
 	private readonly OrdersService ordersService;
+	private readonly Ingredients3DViewSpawner ingredients3DViewSpawner;
 
-	public GameService(PlayerControlsService playerControlsService, OrdersService ordersService)
+	public GameService(PlayerControlsService playerControlsService, OrdersService ordersService, Ingredients3DViewSpawner ingredients3DViewSpawner)
 	{
 		this.ordersService = ordersService;
+		this.ingredients3DViewSpawner = ingredients3DViewSpawner;
 
 		playerControlsService.OnIngredientGameControlClicked += OnIngredientControlClicked;
 	}
@@ -22,26 +23,6 @@ public class GameService
 	private void OnIngredientControlClicked(IngredientGameControlEventData ingredientControlData)
 	{
 		Debug.Log($"Ingredient {ingredientControlData.IngredientData.Ingredient.Name}");
-	}
-}
-
-public class OrdersService
-{
-	private readonly OrdersViewSpawner ordersViewSpawner;
-	private readonly OrderRandomGenerator orderRandomGenerator;
-
-	private readonly List<OrderView> ordersViews = new List<OrderView>();
-
-	public OrdersService(OrdersViewSpawner ordersViewSpawner, OrderRandomGenerator orderRandomGenerator)
-	{
-		this.ordersViewSpawner = ordersViewSpawner;
-		this.orderRandomGenerator = orderRandomGenerator;
-	}
-
-	public void CreateOrder(int maxIngredientsPerOrder)
-	{
-		var order = orderRandomGenerator.Generate(maxIngredientsPerOrder);
-		var orderView = ordersViewSpawner.CreateOrderView(order);
-		ordersViews.Add(orderView);
+		ingredients3DViewSpawner.Spawn(ingredientControlData.IngredientData);
 	}
 }
