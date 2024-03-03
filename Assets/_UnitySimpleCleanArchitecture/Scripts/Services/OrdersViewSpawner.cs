@@ -13,7 +13,7 @@ public class OrdersViewSpawner
 		this.parent = parent;
 	}
 
-	public OrderView CreateOrderView(Order order)
+	public OrderView Spawn(Order order)
 	{
 		var orderView = ordersViewFactory.Create(orderViewPrefab, order);
 		orderView.transform.SetParent(parent, false);
