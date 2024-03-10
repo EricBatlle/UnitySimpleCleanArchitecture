@@ -47,7 +47,8 @@ public class GameSceneInstaller : MonoInstaller
 	{
 		Container.Bind<Ingredients3DViewSpawner>().AsSingle();
 		Container.Bind<Transform>().FromInstance(ingredients3DViewParent).AsCached().WhenInjectedInto<Ingredients3DViewSpawner>();
-		Container.BindFactory<Object, Ingredient3DView, Ingredient3DView.Factory>().FromFactory<PrefabFactory<Ingredient3DView>>();
+		Container.Bind<Ingredient3DViewFactory>().AsCached();
+		Container.BindFactory<Object, Ingredient3DView, Ingredient3DView.Factory>().FromFactory<Ingredient3DViewFactory>();
 		Container.Bind<IngredientsSpawnPositionsProviderView>().FromInstance(ingredientsSpawnerView).AsSingle();
 	}
 

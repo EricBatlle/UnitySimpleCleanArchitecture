@@ -10,6 +10,11 @@ public class ClickDetectorGizmo : MonoBehaviour
 
 	private Vector3 gizmoPosition;
 
+	private void Awake()
+	{
+		Debug.LogWarning($"You have a {typeof(ClickDetectorGizmo)} attached to the scene, remember to remove it when you end the debugging session");
+	}
+
 	private void Update()
 	{
 		// Verifica si se hizo clic en la pantalla

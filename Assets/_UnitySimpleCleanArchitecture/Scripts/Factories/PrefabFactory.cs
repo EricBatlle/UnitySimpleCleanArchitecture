@@ -4,7 +4,7 @@ using Object = UnityEngine.Object;
 
 public class PrefabFactory<T> : IFactory<Object, T>
 {
-	readonly DiContainer _container;
+	protected readonly DiContainer _container;
 
 	public PrefabFactory(DiContainer container)
 	{
